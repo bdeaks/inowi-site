@@ -35,17 +35,17 @@ export default function Process() {
   }, [observerCb]);
 
   return (
-    <section ref={ref} className="py-20 px-6">
+    <section ref={ref} className="py-[120px] px-6">
       <div
         className={`max-w-6xl mx-auto grid md:grid-cols-2 gap-16 transition-all duration-700 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
         <div>
-          <p className="text-xs font-semibold tracking-widest text-muted uppercase mb-4">
+          <p className="text-[11px] font-semibold tracking-[2.5px] text-muted uppercase mb-4">
             Processus
           </p>
-          <h2 className="text-[40px] font-bold leading-[1.1] text-primary">
+          <h2 className="text-[42px] font-bold leading-[1.05] text-primary">
             Trois étapes.
             <br />
             Quatre semaines.
@@ -59,14 +59,20 @@ export default function Process() {
               className={`py-8 ${
                 i < steps.length - 1 ? "border-b border-border" : ""
               }`}
+              style={{
+                transitionDelay: visible ? `${i * 150}ms` : "0ms",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(12px)",
+                transition: "opacity 0.5s ease, transform 0.5s ease",
+              }}
             >
-              <div className="flex items-baseline gap-4 mb-2">
-                <span className="text-sm font-semibold text-muted">
+              <div className="flex items-center gap-5 mb-3">
+                <span className="w-10 h-10 rounded-full border-2 border-accent text-accent flex items-center justify-center text-sm font-bold shrink-0">
                   {step.num}
                 </span>
                 <h3 className="text-lg font-bold text-primary">{step.title}</h3>
               </div>
-              <p className="text-secondary leading-relaxed ml-10">
+              <p className="text-secondary leading-[1.65] ml-[60px]">
                 {step.desc}
               </p>
             </div>

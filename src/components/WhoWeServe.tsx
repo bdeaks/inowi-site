@@ -36,16 +36,16 @@ export default function WhoWeServe() {
   }, [observerCb]);
 
   return (
-    <section ref={ref} id="cas-clients" className="bg-surface py-20 px-6">
+    <section ref={ref} id="cas-clients" className="bg-surface py-[120px] px-6">
       <div
         className={`max-w-6xl mx-auto transition-all duration-700 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <p className="text-xs font-semibold tracking-widest text-muted uppercase mb-4">
+        <p className="text-[11px] font-semibold tracking-[2.5px] text-muted uppercase mb-4">
           Nos clients
         </p>
-        <h2 className="text-[40px] font-bold leading-[1.1] text-primary mb-12 max-w-xl">
+        <h2 className="text-[42px] font-bold leading-[1.05] text-primary mb-14 max-w-xl">
           Des dirigeants sérieux qui veulent multiplier leur output — pas leur
           masse salariale.
         </h2>
@@ -54,10 +54,15 @@ export default function WhoWeServe() {
           {profiles.map((p, i) => (
             <div
               key={i}
-              className="bg-white border border-border rounded-xl p-6"
+              className="bg-white border border-border rounded-xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+              style={{
+                transitionDelay: visible ? `${i * 100}ms` : "0ms",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(12px)",
+              }}
             >
-              <h3 className="font-bold text-primary mb-2">{p.title}</h3>
-              <p className="text-sm text-secondary leading-relaxed">
+              <h3 className="font-bold text-primary mb-3">{p.title}</h3>
+              <p className="text-sm text-secondary leading-[1.65]">
                 {p.desc}
               </p>
             </div>

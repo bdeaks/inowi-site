@@ -17,13 +17,13 @@ export default function ClosingStatement() {
   }, [observerCb]);
 
   return (
-    <section ref={ref} id="audit" className="bg-surface py-24 px-6">
+    <section ref={ref} id="audit" className="bg-surface py-[140px] px-6">
       <div
         className={`max-w-5xl mx-auto text-center transition-all duration-700 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <h2 className="text-5xl md:text-[68px] font-extrabold leading-[1.0] tracking-tight text-primary mb-8">
+        <h2 className="text-[42px] sm:text-[56px] md:text-[72px] font-extrabold leading-[0.95] tracking-[-1px] text-primary mb-10">
           Les entreprises qui
           <br />
           bougent maintenant
@@ -32,15 +32,15 @@ export default function ClosingStatement() {
           <br />
           décennie.
         </h2>
-        <p className="text-secondary leading-relaxed max-w-xl mx-auto mb-10">
+        <p className="text-secondary leading-[1.65] max-w-xl mx-auto mb-12">
           Chaque avantage compétitif a un point de bascule. Nous y sommes. La
           question n&apos;est plus si — c&apos;est avec qui.
         </p>
         <a
           href="#"
-          className="inline-block bg-accent text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-accent/90 transition-colors"
+          className="cta-hover inline-block bg-accent text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-accent/90 transition-colors"
         >
-          Prendre rendez-vous — audit gratuit →
+          Prendre rendez-vous — audit gratuit <span className="cta-arrow">&rarr;</span>
         </a>
       </div>
     </section>

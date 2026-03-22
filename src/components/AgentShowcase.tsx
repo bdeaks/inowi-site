@@ -111,16 +111,19 @@ function ActivityFeed({ items }: { items: { text: string; time: string }[] }) {
 
   return (
     <div className="space-y-3">
-      <p className="text-xs font-semibold tracking-widest text-muted uppercase">
-        Activité récente
-      </p>
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
+        <p className="text-[11px] font-semibold tracking-[2.5px] text-muted uppercase">
+          Activité récente
+        </p>
+      </div>
       {items.slice(0, visibleCount).map((item, i) => (
         <div
           key={i}
-          className="flex items-start gap-3 text-sm animate-fade-in-up"
+          className="flex items-start gap-3 text-sm animate-slide-in rounded-lg px-3 py-2 -mx-3 hover:bg-surface transition-colors"
           style={{ animationDelay: `${i * 100}ms` }}
         >
-          <span className="mt-1.5 w-2 h-2 rounded-full bg-accent shrink-0" />
+          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 shrink-0" />
           <span className="text-primary">{item.text}</span>
           <span className="text-muted ml-auto whitespace-nowrap text-xs">
             {item.time}
@@ -152,21 +155,21 @@ export default function AgentShowcase() {
     <section
       ref={sectionRef}
       id="services"
-      className="bg-surface py-20 px-6"
+      className="bg-surface py-[120px] px-6"
     >
       <div
         className={`max-w-6xl mx-auto transition-all duration-700 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <div className="flex flex-wrap gap-2 mb-10 border-b border-border">
+        <div className="flex flex-wrap gap-2 mb-12 border-b border-border">
           {agents.map((a, i) => (
             <button
               key={a.id}
               onClick={() => setActiveIdx(i)}
-              className={`px-4 py-3 text-sm font-semibold transition-colors ${
+              className={`px-5 py-4 text-sm font-semibold transition-colors ${
                 i === activeIdx
-                  ? "text-primary border-b-2 border-primary"
+                  ? "text-primary border-b-2 border-accent"
                   : "text-muted hover:text-secondary"
               }`}
             >
@@ -175,12 +178,12 @@ export default function AgentShowcase() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-14">
           <div>
-            <h3 className="text-2xl font-bold text-primary mb-3">
+            <h3 className="text-2xl font-bold text-primary mb-4">
               {agent.title}
             </h3>
-            <p className="text-secondary leading-relaxed mb-8">
+            <p className="text-secondary leading-[1.65] mb-10">
               {agent.description}
             </p>
 
@@ -188,18 +191,18 @@ export default function AgentShowcase() {
               {agent.stats.map((stat, i) => (
                 <div
                   key={i}
-                  className="bg-white border border-border rounded-xl p-5"
+                  className="bg-white border border-border border-l-3 border-l-accent rounded-xl p-5"
                 >
-                  <p className="text-4xl font-bold text-primary">
+                  <p className="text-5xl font-bold text-primary">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-muted mt-1">{stat.label}</p>
+                  <p className="text-sm text-muted mt-2">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-white border border-border rounded-xl p-6">
+          <div className="bg-white border border-border rounded-xl p-7">
             <ActivityFeed items={agent.activity} />
           </div>
         </div>
