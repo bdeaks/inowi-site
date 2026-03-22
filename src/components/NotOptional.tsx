@@ -17,47 +17,64 @@ export default function NotOptional() {
   }, [observerCb]);
 
   return (
-    <section ref={ref} className="py-[120px] px-6">
+    <section ref={ref} className="py-[140px] px-6 relative overflow-hidden">
+      {/* Watermark 74% */}
       <div
-        className={`max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start transition-all duration-700 ${
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none"
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "clamp(120px, 20vw, 200px)",
+          fontWeight: 900,
+          color: "#F5F5F0",
+          opacity: 0.06,
+          lineHeight: 1,
+        }}
+      >
+        74%
+      </div>
+
+      <div
+        className={`max-w-4xl mx-auto text-center transition-all duration-700 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <div>
-          <h2 className="text-[42px] font-bold leading-[1.05] text-primary">
-            Ce n&apos;est plus
-            <br />
-            optionnel.
-          </h2>
+        <h2
+          className="text-text mb-10"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(56px, 8vw, 96px)",
+            fontWeight: 900,
+            lineHeight: 0.95,
+          }}
+        >
+          Ce n&apos;est plus
+          <br />
+          <em>optionnel.</em>
+        </h2>
 
-          <div className="mt-12">
-            <p className="text-[11px] font-semibold tracking-[2.5px] text-muted uppercase mb-3">
-              Deloitte 2026
-            </p>
-            <div className="w-full bg-surface rounded-full h-4 overflow-hidden">
-              <div
-                className="h-full bg-accent rounded-full transition-all duration-1000"
-                style={{ width: visible ? "74%" : "0%" }}
-              />
-            </div>
-            <p className="text-sm text-secondary mt-2">
-              74% des entreprises déploient des agents d&apos;ici 2 ans
-            </p>
-          </div>
-        </div>
+        <div className="w-full h-px bg-border mb-10" />
 
-        <div className="space-y-6">
-          <p className="text-secondary leading-[1.65]">
-            Chaque semaine que vous perdez, vos concurrents déploient des
-            systèmes qui gèrent leurs relances commerciales, accélèrent leurs
-            prises de décision et creusent l&apos;écart.
+        <div className="max-w-[700px] mx-auto space-y-6">
+          <p
+            className="text-base font-light leading-[1.7] text-text-secondary"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Chaque semaine que vous perdez, vos concurrents d&eacute;ploient des
+            syst&egrave;mes qui g&egrave;rent leurs relances commerciales, acc&eacute;l&egrave;rent leurs
+            prises de d&eacute;cision et creusent l&apos;&eacute;cart.
           </p>
-          <p className="text-secondary leading-[1.65]">
-            74% des organisations prévoient de déployer des agents autonomes
+          <p
+            className="text-base font-light leading-[1.7] text-text-secondary"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            74% des organisations pr&eacute;voient de d&eacute;ployer des agents autonomes
             d&apos;ici 2 ans. Seulement 21% ont la gouvernance en place. Ceux qui
-            agissent maintenant définissent les règles du jeu.
+            agissent maintenant d&eacute;finissent les r&egrave;gles du jeu.
           </p>
-          <p className="text-primary font-semibold">
+          <p
+            className="text-base font-medium text-text"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
             Ce n&apos;est plus une question de savoir si vous adoptez l&apos;IA — c&apos;est
             quand, et avec qui.
           </p>

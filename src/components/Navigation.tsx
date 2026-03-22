@@ -14,70 +14,67 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-border"
-          : "bg-white"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-bg nav-scrolled" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-2xl font-semibold tracking-tight text-primary">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a
+          href="#"
+          className="font-body text-lg font-medium tracking-[-0.02em] text-text"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
           INOWI
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#services" className="nav-link text-sm text-secondary hover:text-primary transition-colors">
-            Services
-          </a>
-          <a href="#cas-clients" className="nav-link text-sm text-secondary hover:text-primary transition-colors">
-            Cas clients
-          </a>
-          <a href="#blog" className="nav-link text-sm text-secondary hover:text-primary transition-colors">
-            Blog
-          </a>
-          <a href="#tarifs" className="nav-link text-sm text-secondary hover:text-primary transition-colors">
-            Tarifs
-          </a>
+        <div className="hidden md:flex items-center gap-10">
+          {["Services", "Cas clients", "Blog", "Tarifs"].map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase().replace(" ", "-")}`}
+              className="text-[12px] font-semibold tracking-[3px] uppercase text-text-secondary hover:text-text transition-colors duration-300"
+            >
+              {link}
+            </a>
+          ))}
           <a
             href="#audit"
-            className="cta-hover bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-primary/90 transition-colors"
+            className="cta-hover text-[12px] font-semibold tracking-[3px] uppercase text-accent hover:underline underline-offset-4 transition-colors duration-300"
           >
             Audit gratuit <span className="cta-arrow">&rarr;</span>
           </a>
         </div>
 
         <button
-          className="md:hidden text-primary"
+          className="md:hidden text-text"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
         >
-          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
             {mobileOpen ? (
               <path d="M6 6l12 12M6 18L18 6" />
             ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
+              <path d="M4 7h16M4 12h16M4 17h16" />
             )}
           </svg>
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-border px-6 py-4 flex flex-col gap-4">
-          <a href="#services" className="text-sm text-secondary" onClick={() => setMobileOpen(false)}>
-            Services
-          </a>
-          <a href="#cas-clients" className="text-sm text-secondary" onClick={() => setMobileOpen(false)}>
-            Cas clients
-          </a>
-          <a href="#blog" className="text-sm text-secondary" onClick={() => setMobileOpen(false)}>
-            Blog
-          </a>
-          <a href="#tarifs" className="text-sm text-secondary" onClick={() => setMobileOpen(false)}>
-            Tarifs
-          </a>
+        <div className="md:hidden bg-bg border-t border-border px-6 py-6 flex flex-col gap-5">
+          {["Services", "Cas clients", "Blog", "Tarifs"].map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase().replace(" ", "-")}`}
+              className="text-[12px] font-semibold tracking-[3px] uppercase text-text-secondary"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link}
+            </a>
+          ))}
           <a
             href="#audit"
-            className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-md text-center"
+            className="text-[12px] font-semibold tracking-[3px] uppercase text-accent"
             onClick={() => setMobileOpen(false)}
           >
             Audit gratuit &rarr;
