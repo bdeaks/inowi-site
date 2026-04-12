@@ -70,7 +70,7 @@ export default function ClosingStatement() {
         </p>
 
         <a
-          href="#"
+          href="#audit"
           className="inline-block text-[12px] font-semibold tracking-[2px] uppercase px-8 py-4 transition-colors hover:opacity-80"
           style={{
             fontFamily: "var(--font-body)",
